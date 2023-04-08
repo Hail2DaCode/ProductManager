@@ -1,0 +1,28 @@
+.App {
+  width: 800px;
+  margin: 0 auto;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.container { 
+  display: block;
+}
+label, input {
+  margin: 10px;
+}
+button {
+  width: 25%;
+  background-color: blanchedalmond;
+  padding: 10px;
+  box-shadow: 4px 5px 5px red;
+  font-size: 16pt;
+  color: blueviolet;
+  font-weight: 700 ;
+  border: 5px inset black;
+
+}
+
