@@ -4,15 +4,19 @@ module.exports.index = (request, response) => {
         message: "Hello World"
     });
 }
-module.exports.findAllProducts = (req, res) => {
-    Product.find()
-        .then((allDaProducts) => {
-            res.json({ Products: allDaProducts})
+module.exports.getAllProducts = (request, response) => {
+    Product.find({})
+        .then(Products => {
+            console.log(Products); //console logs are optional, but they are highly recommended for troubleshooting!
+            response.json(Products);
         })
-        .catch((err) => {
-            res.json({ message: 'Something went wrong', error: err })
-        });
+        .catch(err => {
+            console.log(err)
+            response.json(err)
+        })
 }
+
+
           /* The method below is new */
 module.exports.createProduct = (request, response) => {
     // Mongoose's "create" method is run using our Product model to add a new Product to our db's Product collection.
@@ -21,4 +25,11 @@ module.exports.createProduct = (request, response) => {
         .then(Product => response.json(Product))
         .catch(err => response.json(err));
 }
+
+module.exports.getProduct = (request, response) => {
+    Product.findOne({_id:request.params.id})
+        .then(Product => response.json(Product))
+        .catch(err => response.json(err));
+}
+
 

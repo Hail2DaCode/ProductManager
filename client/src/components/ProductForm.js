@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import axios from 'axios';
-const ProductForm = () => {
+const ProductForm = (props) => {
     //keep track of what is being typed via useState hook
+    const {product, setProduct} = props;
     const [Title, setTitle] = useState(""); 
     const [Price, setPrice] = useState("");
     const [Description, setDescription] = useState("");
@@ -18,6 +19,8 @@ const ProductForm = () => {
             .then(res=>{
                 console.log(res); // always console log to get used to tracking your data!
                 console.log(res.data);
+                setProduct([...product, res.data]);
+
             })
             .catch(err=>console.log(err))
         setTitle("");
@@ -26,6 +29,8 @@ const ProductForm = () => {
     }
     
     return (
+        <div>
+            <h1 className="header">Product Manager</h1>
         <form onSubmit={onSubmitHandler}>
             <p className='container'>
                 <label>Title:</label>
@@ -41,6 +46,8 @@ const ProductForm = () => {
             </p>
             <button type="submit">Create</button>
         </form>
+        </div>
+        
     )
 }
 export default ProductForm;
