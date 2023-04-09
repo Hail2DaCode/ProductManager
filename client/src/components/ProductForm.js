@@ -29,21 +29,21 @@ const ProductForm = (props) => {
     }
     
     return (
-        <div>
+        <div className="maxcontainer">
             <h1 className="header">Product Manager</h1>
         <form onSubmit={onSubmitHandler}>
-            <p className='container'>
-                <label>Title:</label>
-                <input type="text" value={Title} onChange = {(e)=>setTitle(e.target.value)}/>
-            </p>
-            <p className='container'>
-                <label>Price:</label>
-                <input type="number" value = {Price} onChange = {(e)=>{setPrice(e.target.value); console.log(e.target.value)}}/>
-            </p>
-            <p className='container'>
-                <label>Description:</label>
-                <input type="text" value = {Description} onChange = {(e)=>setDescription(e.target.value)}/>
-            </p>
+            <div className='container'>
+                <label className ="label">Title:</label>
+                <input className ="input" type="text" value={Title} onChange = {(e)=>setTitle(e.target.value)}/>
+            </div>
+            <div className='container'>
+                <label className ="label" >Price:</label>
+                <input className ="input" type="number" value = {Price} onChange = {(e)=>{setPrice(e.target.value); console.log(e.target.value)}}/>
+            </div>
+            <div className='container'>
+                <label className ="label">Description:</label>
+                <input className ="input" type="text" value = {Description} onChange = {(e)=>setDescription(e.target.value)}/>
+            </div>
             <button type="submit">Create</button>
         </form>
         </div>
